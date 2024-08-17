@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route  } from "react-router-dom"
+import Home from "./views/Home"
+//import Login from "./views/Login"
+//import Profile from "./views/Profile"
+//import ProfileInfo from "./views/ProfileInfo"
+//import Navbar from "./componets/Navbar"
+import injectContext from "./store/context"
+import Addcontact from "./views/Addcontact"
+import Editcontact from "./views/Editcontact"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () =>{
+  return <div>
+<BrowserRouter>
+<Routes>
+  <Route path="/" element={<Home/>}/>
+  <Route path="/create" element={<Addcontact/>}/>
+  <Route path="/edit/:id" element={<Editcontact/>}/>
+</Routes>
+</BrowserRouter>
+  </div>
 }
-
-export default App;
+//export default App
+export default injectContext(App);
